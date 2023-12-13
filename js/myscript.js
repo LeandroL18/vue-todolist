@@ -26,8 +26,8 @@ createApp({
             this.compito= "";
         },
 
-        delTodo(){
-
+        delTodo(i){
+            this.todos.splice(i, 1)
         }
     }
 }).mount('#app')
