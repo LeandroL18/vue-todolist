@@ -3,6 +3,7 @@ const { createApp } = Vue
 createApp({
     data() {
         return {
+            error: false,
             compito:"",
             todos: [
                 {
@@ -22,12 +23,21 @@ createApp({
     },
     methods: {
         addTodo(){
-            this.todos.unshift({text: this.compito, done: false}),
-            this.compito= "";
+            if(this.compito.length >= 5){
+                this.error= false;
+                this.todos.unshift({text: this.compito, done: false});
+                this.compito= "";
+            }
+            else this.error= true;
         },
 
         delTodo(i){
             this.todos.splice(i, 1)
+        },
+
+        sbarra(i){
+            if (this.todos[i].done === true) this.todos[i].done = false;
+            else this.todos[i].done = true;
         }
-    }
+    }   
 }).mount('#app')

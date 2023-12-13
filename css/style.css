@@ -8,7 +8,7 @@
 }
 
 .logo{
-    margin: 100px 400px;
+    margin: 100px 390px;
     width: 400px;
 }
 .logo img{
@@ -19,8 +19,6 @@
     margin-bottom: 50px;
     margin-left: 330px;
     width: 50%;
-    display: flex;
-    justify-content: space-between;
 }
 
 input, button{
@@ -29,6 +27,10 @@ input, button{
     border-radius: 5px;
     border: 1px solid gray;
     padding: 6px;
+}
+
+input{
+    margin-right: 105px;
 }
 
 ul{
@@ -44,4 +46,9 @@ li{
 
 .sbarrato{
     text-decoration: line-through;
+}
+
+#error{
+    color: red;
+    margin-left: 20px;
 }

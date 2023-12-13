@@ -23,15 +23,18 @@
 
             <!-- input -->
             <div class="new_todo">
-                <input type="text" placeholder="Inserisci un  nuovo compito" v-model="compito">
+                <input type="text" placeholder="Inserisci un  nuovo compito" v-model="compito" @keyup.enter="addTodo">
                 <button @click="addTodo">Aggiungi</button>
+                <div class="error" v-if="error">
+                    <h4 id="error">Non puoi inserire meno di 5 caratteri!</h4>
+                </div>
             </div>
             
             <!-- output -->
             <div class="todo_container">
                 <ul v-if="todos.length > 0">
                     <li v-for="(item, i) in todos" :key="i">
-                        <span :class="todos[i].done === true ? 'sbarrato' : '' ">
+                        <span :class="todos[i].done === true ? 'sbarrato' : '' " @click="sbarra(i)">
                             {{item.text}}
                         </span>
                         <span id="x">
@@ -39,6 +42,7 @@
                         </span>
                     </li>
                 </ul>
+                <h2 v-else>Non ci sono compiti da svolgere!</h2>
             </div>
 
         </div>
