@@ -3,6 +3,7 @@ const { createApp } = Vue
 createApp({
     data() {
         return {
+            compito:"",
             todos: [
                 {
                     text: 'Fare i compiti',
@@ -17,6 +18,16 @@ createApp({
                     done: false
                 }
             ]
+        }
+    },
+    methods: {
+        addTodo(){
+            this.todos.unshift({text: this.compito, done: false}),
+            this.compito= "";
+        },
+
+        delTodo(){
+
         }
     }
 }).mount('#app')
